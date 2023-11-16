@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drużyny Piłkarskie</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .favorite {
+            background-color: red;
+            color: white;
+        }
+    </style>
+    <script>
+        // Funkcja do sprawdzania i zaznaczania drużyny z ciasteczka 'favorite'
+        function checkFavoriteTeam() {
+            var favoriteTeam = getCookie("favorite");
+
+            if (favoriteTeam) {
+                var table = document.getElementById("teamsTable");
+                var rows = table.getElementsByTagName("tr");
+
+                for (var i = 1; i < rows.length; i++) {
+                    var cells = rows[i].getElementsByTagName("td");
+                    var teamName = cells[0].innerText.trim();
+
+                    if (teamName === favoriteTeam) {
+                        rows[i].classList.add("favorite");
+                    }
+                }
+            }
+        }
+
+        // Funkcja do pobierania wartości ciasteczka
+        function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(';');
+
+            for (var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i].trim();
+                if (cookie.indexOf(name) === 0) {
+                    return cookie.substring(name.length, cookie.length);
+                }
+            }
+
+            return "";
+        }
+    </script>
+</head>
+<body onload="checkFavoriteTeam()">
+    <h2>Drużyny Piłkarskie</h2>
+    <table id="teamsTable">
+        <tr>
+            <th>Drużyna</th>
+            <th>Lokalizacja</th>
+        </tr>
+        <tr>
+            <td>Shrek United</td>
+            <td>Brwinów</td>
+        </tr>
+        <tr>
+            <td>Myszka Miki FC</td>
+            <td>Wólki Dolne</td>
+        </tr>
+        <tr>
+            <td>Kubuś Puchatek FC</td>
+            <td>Międzygórze</td>
+        </tr>
+        <tr>
+            <td>Kopciuszek Stars</td>
+            <td>Złotów</td>
+        </tr>
+        <tr>
+            <td>Piotruś Pan Flyers</td>
+            <td>Łeba</td>
+        </tr>
+        <tr>
+            <td>Alicja w Krainie Czarów Wanderers</td>
+            <td>Krynica-Zdrój</td>
+        </tr>
+        <tr>
+            <td>Śpiąca Królewna Dreamers</td>
+            <td>Pszczyna</td>
+        </tr>
+        <tr>
+            <td>Prząśniczek Rumpelstiltskin</td>
+            <td>Sandomierz</td>
+        </tr>
+        <tr>
+            <td>Czerwony Kapturek Hunters</td>
+            <td>Kołobrzeg</td>
+        </tr>
+        <!-- Dodaj kolejne drużyny z bajkowymi postaciami i lokalizacjami -->
+    </table>
+</body>
+</html>
