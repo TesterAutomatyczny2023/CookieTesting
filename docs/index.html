@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <script>
+        // Funkcja do sprawdzania wartości ciasteczka 'lang'
+        function checkLanguage() {
+            var langCookie = document.cookie.split('; ').find(row => row.startsWith('lang='));
+
+            if (langCookie) {
+                var langValue = langCookie.split('=')[1];
+
+                // Sprawdź wartość ciasteczka 'lang' i wyświetl odpowiedni komunikat
+                if (langValue === 'PL') {
+                    document.getElementById('welcomeMessage').innerText = 'Witaj na stronie!';
+                } else if (langValue === 'EN') {
+                    document.getElementById('welcomeMessage').innerText = 'Welcome to my site!';
+                } else if (langValue === 'DE') {
+                    document.getElementById('welcomeMessage').innerText = 'Wilkommen!';
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="checkLanguage()">
+    <div id="welcomeMessage">Loading...</div>
+</body>
+</html>
