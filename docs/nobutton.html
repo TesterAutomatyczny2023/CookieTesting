@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Składniki do Pizzy</title>
+</head>
+<body>
+
+    <h1>Składniki do Pizzy</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Cena (PLN)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pomidory</td>
+                <td class="price">2.50</td>
+            </tr>
+            <tr>
+                <td>Ser</td>
+                <td class="price">3.00</td>
+            </tr>
+            <tr>
+                <td>Pepperoni</td>
+                <td class="price">4.50</td>
+            </tr>
+            <!-- Dodaj więcej wierszy z danymi o składnikach -->
+        </tbody>
+    </table>
+
+    <div id="total">Suma: <span id="totalAmount"></span> PLN</div>
+
+    <script>
+       
+        function calculateTotal() {
+            // Znajdź wszystkie elementy z klasą "price"
+            var prices = document.querySelectorAll(".price");
+            
+            var totalAmount = 0;
+
+            // Iteruj przez wszystkie ceny i dodaj je do sumy
+            prices.forEach(function(priceElement) {
+                var price = parseFloat(priceElement.textContent);
+                totalAmount += price;
+            });
+
+            // Zaokrąglanie do dwóch miejsc po przecinku
+            totalAmount = totalAmount.toFixed(2);
+
+            // Wyświetl sumę w elemencie o id "totalAmount"
+            document.getElementById("totalAmount").textContent = totalAmount;
+        }
+    </script>
+
+</body>
+</html>
