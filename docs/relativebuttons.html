@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-grid">
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+        <button id="middle" onclick="showNumber(this)">middle</button>
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+        <button onclick="showNumber(this)"></button>
+    </div>
+
+    <script>
+        function showNumber(button) {
+            // Pobierz numer przycisku na podstawie jego indeksu w kontenerze
+            var buttonIndex = Array.from(button.parentNode.children).indexOf(button) + 1;
+
+            // Jeśli przycisk ma id "middle", użyj "middle" jako numer
+            var buttonNumber = button.id === "middle" ? "middle" : buttonIndex;
+
+            // Ustaw tekst przycisku na jego numer
+            button.textContent = buttonNumber;
+
+            // Wyłącz obsługę zdarzeń kliknięcia, aby uniknąć zmiany tekstu po kolejnych kliknięciach
+            button.onclick = null;
+        }
+    </script>
+
+</body>
+</html>
