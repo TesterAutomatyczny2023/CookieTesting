@@ -29,7 +29,7 @@ button {display: block}
     <script>
         // Funkcja obsługująca kliknięcie przycisku
         function toggleText() {
-            var text = this.nextElementSibling;
+            var text = this.nextElementSibling.nextElementSibling;
             // Sprawdzamy, czy tekst jest aktualnie ukryty
             if (text.style.display === "none") {
                 // Jeśli tak, odkrywamy tekst
