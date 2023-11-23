@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+    <style>
+        /* Ukrywamy tekst początkowo */
+        div[aria-hidden="true"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Przyciski i divy z tekstem -->
+    <div>
+        <button id="button1">Button 1</button>
+        <div>Tekst dla przycisku 1</div>
+    </div>
+
+    <div>
+        <button id="button2">Button 2</button>
+        <div>Tekst dla przycisku 2</div>
+    </div>
+
+    <div>
+        <button id="button3">Button 3</button>
+        <div>Tekst dla przycisku 3</div>
+    </div>
+
+    <script>
+        // Funkcja obsługująca kliknięcie przycisku
+        function toggleText() {
+            var text = this.nextElementSibling;
+            // Sprawdzamy, czy tekst jest aktualnie ukryty
+            if (text.style.display === "none") {
+                // Jeśli tak, odkrywamy tekst
+                text.style.display = "block";
+            } else {
+                // Jeśli nie, ukrywamy tekst
+                text.style.display = "none";
+            }
+        }
+
+        // Dodajemy obsługę zdarzenia dla każdego przycisku
+        document.getElementById("button1").addEventListener("click", toggleText);
+
+        document.getElementById("button2").addEventListener("click", toggleText);
+
+        document.getElementById("button3").addEventListener("click", toggleText);
+    </script>
+
+</body>
+</html>
