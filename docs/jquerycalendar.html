@@ -17,6 +17,12 @@
   <p>Date: <input type="text" id="datepicker" ></p>
    
    
-   
+  <script>
+    let blockDate = document.getElementById("datepicker");
+    blockDate.addEventListener("keydown", function(event){
+        event.preventDefault();
+        return false;
+    })
+</script>
    
   </body></html>
