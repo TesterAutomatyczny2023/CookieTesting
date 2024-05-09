@@ -17,10 +17,22 @@
         <input type="date" name="leave" >
         <input type="submit">
     </form>
+    <div id="arrival">  </div>
+    <div id="leave">  </div>
     <script>
         let blockDate = document.querySelector("input[name='leave']");
         blockDate.addEventListener("keydown", function(event){
             event.preventDefault();
+            return false;
+        })
+        let submit = document.querySelector("input[type='submit']");
+        let date = document.querySelector("input[name='arrival']");
+        let arrival = document.getElementById("arrival");
+        let leave = document.getElementById("leave");
+        submit.addEventListener("click", function(event){
+            event.preventDefault();
+            arrival.innerText = date.value;
+            leave.innerText = blockDate.value;    
             return false;
         })
     </script>
