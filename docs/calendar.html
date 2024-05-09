@@ -14,7 +14,15 @@
         <input name="name" placeholder="name">
         <input name="surname" placeholder="surname">
         <input type="date" name="arrival">
+        <input type="date" name="leave" >
         <input type="submit">
     </form>
+    <script>
+        let blockDate = document.querySelector("input[name='leave']");
+        blockDate.addEventListener("keydown", function(event){
+            event.preventDefault();
+            return false;
+        })
+    </script>
 </body>
 </html>
