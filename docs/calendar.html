@@ -21,10 +21,13 @@
     <div id="leave">  </div>
     <script>
         let blockDate = document.querySelector("input[name='leave']");
-        blockDate.addEventListener("keydown", function(event){
+        function blockKeys(event){
             event.preventDefault();
+            this.value = "";
             return false;
-        })
+        }
+        blockDate.addEventListener("keydown", blockKeys);
+        blockDate.addEventListener("keyup", blockKeys);
         let submit = document.querySelector("input[type='submit']");
         let date = document.querySelector("input[name='arrival']");
         let arrival = document.getElementById("arrival");
